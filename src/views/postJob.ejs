@@ -55,7 +55,7 @@
     </div>
   </nav>
     <div class="outerPostJobFormContainer">
-        <div class="postJobFormContainer">
+        <div class="postJobFormContainer" id="postJobFormContainerActual">
           <% if(errMsg) {%>
             <div class="errorMessage isVisible">
             <% }else{ %>
@@ -63,7 +63,7 @@
             <% } %>
               <%= errMsg %>
           </div>
-            <h2 class="noto-serif-font">Post a new Job</h3>
+            <h2 class="noto-serif-font" id="postJobHeader">Post a new Job</h3>
             <form method="post" action="/postJob">
                 <div class="mb-3">
                     <select class="form-select categorySelect" aria-label="Default select example" name="jobCategory">

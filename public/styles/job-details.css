@@ -206,12 +206,18 @@ body{
     height: 75vh;
     border-radius: 10px;
 }
+#postJobFormContainerActual{
+    height: 78vh;
+}
 .postJobFormContainer:has(.isVisible){
     height: 72vh;
 }
 .postJobFormContainer h2{
     width: fit-content;
-    margin:10px auto;
+    margin:10px auto 10px;
+}
+#postJobHeader{
+    margin:0px auto 10px;
 }
 .postJobFormContainer{
     padding: 0 15px;
