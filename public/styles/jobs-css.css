@@ -19,6 +19,9 @@ body{
     background-color: #334B63;
     color: #D6E2F0 ;
 }
+.btn{
+    padding: 0.175rem 0.30rem !important;
+}
 .card-title{
     margin-top: 5px;
     color: #ffc107 ;
