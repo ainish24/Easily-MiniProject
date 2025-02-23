@@ -109,7 +109,7 @@ body{
 .innerApplyNowContainer{
     position: relative;
     background-color: #fff;
-    height: 75vh;
+    height: 77vh;
     width: 30vw;
     border-radius: 8px;
 }
@@ -139,7 +139,7 @@ body{
 .innerFormContainer{
     border: 1px solid black;
     box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
-    width: 23vw;
+    width: 24vw;
     height: 40vh;
     margin: 30px auto 70px;
 }
@@ -203,7 +203,7 @@ body{
 }
 .postJobFormContainer{
     width: 50vw;
-    height: 70vh;
+    height: 75vh;
     border-radius: 10px;
 }
 .postJobFormContainer:has(.isVisible){

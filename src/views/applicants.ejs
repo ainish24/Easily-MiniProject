@@ -42,7 +42,7 @@
           </li>
           <% if(isExist){ %>
             <li class="nav-link" style="padding: 0; transform: translateY(20%);">
-              <p>Last logged in at :- <%= loginDate %></p>
+              <p class="lastLoggedIn">Last logged in at :- <%= loginDate %></p>
             </li>
             <% } %>
         </ul>
@@ -82,5 +82,6 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"></script>
       
     <script src="/script/index.js"></script>
+    <script src="/script/timeFix.js"></script>
 </body>
 </html>
