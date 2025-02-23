@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Easily</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="/styles/job-details.css">
+</head>
+<body class="postJobBody">
+  <nav class="navbar navbar-expand-lg navbar-light bg-light nav-container fredoka-font">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="/">Easily</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="/">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/jobs">Jobs</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              <%= name %>
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <% if(isExist) {%>
+                <li><a class="dropdown-item" href="/logout">Log Out</a></li>
+              <% } else{ %>
+                <li><a class="dropdown-item" href="/login">Log In</a></li>
+              <% } %>
+              <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item" href="/postJob">Post New Job</a></li>
+            </ul>
+          </li>
+          <% if(isExist){ %>
+            <li class="nav-link" style="padding: 0; transform: translateY(20%);">
+              <p>Last logged in at :- <%= loginDate %></p>
+            </li>
+            <% } %>
+        </ul>
+        <form class="d-flex">
+          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+          <button class="btn btn-outline-success search-button" type="submit">Search</button>
+        </form>
+      </div>
+    </div>
+  </nav>
+
+    <div class="outerPostJobFormContainer">
+        <div class="postJobFormContainer">
+            <h2 class="noto-serif-font">Update Job</h3>
+            <form id="updateForm">
+                <div class="mb-3">
+                    <select class="form-select categorySelect" aria-label="Default select example" name="jobCategory" id="categorySelect">
+                        <option disabled>select job category</option>
+                        <option value="Tech">Tech</option>
+                        <option value="Non-Tech">Non-Tech</option>
+                    </select>
+                </div>
+                <div class="mb-3">
+                    <select class="form-select roleSelect" aria-label="Default select example" name="jobRole" id="roleSelect">
+                        <option disabled>select job designation</option>
+                        <option value="HR">HR</option>
+                        <option value="SDE">SDE</option>
+                        <option value="DevOps">DevOps</option>
+                        <option value="MERN Developer">MERN Developer</option>
+                        <option value="MEAN Developer">MEAN Developer</option>
+                        <option value="JAVA Developer">JAVA Developer</option>
+                        <option value="Front-End Developer">Front-End Developer</option>
+                        <option value="Back-End Developer">Back-End Developer</option>
+                        <option value="Full-Stack Developer">Full-Stack Developer</option>
+                    </select>
+                </div>
+                <div class="mb-3">
+                    <label for="job-location" class="form-label">Enter job location</label>
+                    <input type="text" class="form-control jobLocation" id="job-location" name="jobLocation">
+                </div>
+                <div class="input-group mb-3 company-name">
+                    <span class="input-group-text" id="inputGroup-sizing-default">Company Name</span>
+                    <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" name="companyName" id="company-name">
+                </div>
+                <div class="input-group mb-3 total-positions">
+                    <input type="text" class="form-control" placeholder="enter salary" aria-label="Username" name="salary" id="job-salary">
+                    <span class="input-group-text">Total Positions</span>
+                    <input type="number" class="form-control" placeholder="total number of openings" aria-label="Server" name="totalOpenings" id="total-positions">
+                </div>
+                <div class="input-group mb-3 skillsAndApplyBy">
+                    <select class="form-select" multiple aria-label="multiple select example" name="skills" id="selected-skills">
+                        <option disabled>select skills required for this job</option>
+                        <option value="React">React</option>
+                        <option value="NodeJs">NodeJs</option>
+                        <option value="Angular">Angular</option>
+                        <option value="MongoDB">MongoDB</option>
+                        <option value="SQL">SQL</option>
+                        <option value="Express">Express</option>
+                        <option value="JAVA">JAVA</option>
+                        <option value="SpringBoot">SpringBoot</option>
+                        <option value="C++">C++</option>
+                        <option value="Data Structures & Algo">Data Structures & Algo</option>
+                    </select>
+                    <span class="input-group-text">Apply By</span>
+                    <input type="date" class="form-control" aria-label="Server" name="applyBy" id="applyBy">
+                </div>
+                <button type="submit" class="btn btn-primary postJobSubmit">Submit</button>
+            </form>
+        </div>
+    </div>
+    <script>
+        var job = JSON.parse('<%- JSON.stringify(job) %>');
+        document.getElementById("job-location").value = job.jobLocation;
+        document.getElementById("company-name").value = job.companyName;
+        document.getElementById("job-salary").value = job.salary;
+        document.getElementById("total-positions").value = job.totalOpenings;
+    
+        const selectedSkills = document.getElementById("selected-skills");
+    
+        if (job && job.skills && Array.isArray(job.skills)) {
+          job.skills.forEach(skill => {
+            for (let i = 0; i < selectedSkills.options.length; i++) {
+              if (selectedSkills.options[i].value === skill) {
+                selectedSkills.options[i].selected = true;
+                break;
+              }
+            }
+          });
+        }
+        const roleSelect=document.getElementsByClassName("roleSelect")[0]
+        for(let i=0;i< roleSelect.options.length;i++){
+          if(roleSelect.options[i].value==job.jobRole){
+            roleSelect.options[i].selected=true
+          }
+        }
+        const categorySelect=document.getElementsByClassName("categorySelect")[0]
+        for(let i=0;i< categorySelect.options.length;i++){
+          if(categorySelect.options[i].value==job.jobCategory){
+            categorySelect.options[i].selected=true
+          }
+        }
+        const applyBye=document.getElementById("applyBy")
+        const jobDate=new Date(job.applyBy)
+        const formattedDate=jobDate.toISOString().split("T")[0]
+        applyBye.value=formattedDate
+
+
+        document.addEventListener("DOMContentLoaded",()=>{
+          document.getElementById("updateForm").addEventListener("submit",async function(event){
+            event.preventDefault();
+            const formData = {
+              jobCategory: document.querySelector(".categorySelect").value,
+              jobRole: document.querySelector(".roleSelect").value,
+              jobLocation: document.querySelector("#job-location").value,
+              companyName: document.querySelector("#company-name").value,
+              salary: document.querySelector("#job-salary").value,
+              totalOpenings: document.querySelector("#total-positions").value,
+              applyBy: document.querySelector("input[name='applyBy']").value,
+              skills: Array.from(document.querySelector("#selected-skills").selectedOptions).map(option => option.value)
+          };
+          try{
+            const response = await fetch(`/patchJob/${job.id}`, {
+              method: "PATCH",
+              headers: {
+                  "Content-Type": "application/json"
+              },
+              body: JSON.stringify(formData)
+          });
+          if (response.ok) {
+            window.location.href = "/jobs";
+        } else {
+            const errorData = await response.json();
+            alert(`Error: ${errorData.message}`);
+        }
+          }catch(err){
+            console.log(err)
+          }
+          })
+        })
+      </script>
+    <script src="https://unpkg.com/axios@1.6.7/dist/axios.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"></script>
+</body>
+</html>

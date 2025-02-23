@@ -1,0 +1,46 @@
+body{
+    background-color: #0A1F33;
+}
+
+.navbar {
+    background-color: #77bfe7 !important;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+.oops h1{
+    color: azure;
+    -webkit-text-stroke: 3px black;
+    font-size: 7em;
+    font-weight: 700;
+    width: fit-content;
+    height: fit-content;
+    margin: auto 10px;
+}
+.oops img{
+    width: 450px;
+}
+.oops{
+    display: flex;
+    width: 100%;
+    justify-content: center;
+}
+.bungee-regular {
+    font-family: "Bungee", serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.errorMessage{
+    width: fit-content;
+    margin: 10px auto;
+    color: #E63946; /* Muted Alert Red */
+    font-size: 2.2em;
+    -webkit-text-stroke: 2px black;
+}
+.fredoka-font {
+    font-family: "Fredoka", serif;
+    font-optical-sizing: auto;
+    font-weight: 600;
+    font-style: normal;
+    font-variation-settings:
+      "wdth" 100;
+  }
