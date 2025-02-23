@@ -9,8 +9,9 @@ import * as jobMiddlewares from "./src/middlewares/recruiter.js"
 import { isLoggedIn } from "./src/middlewares/recruiter.js"
 import { validationResult } from "express-validator"
 import {applyValidator,postValidator,registerValidator} from "./src/middlewares/recruiter.js"
+import FileStoreFactory from 'session-file-store';
 
-
+const FileStore = FileStoreFactory(session);
 const app = express()
 dotenv.config()
 
@@ -20,6 +21,7 @@ app.set("views",'./src/views')
 app.use(bodyParser.urlencoded({extended:true}))
 app.use(bodyParser.json())
 app.use(session({
+    store: new FileStore({ path: './sessions' }),
     secret: process.env.EXPRESS_SESSION_SECRET,
     resave: false,
     saveUninitialized: false,
